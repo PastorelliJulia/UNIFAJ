@@ -1,0 +1,13 @@
+import pandas as pd
+
+# Criar um DataFrame de exemplo
+data = {
+    'data': pd.date_range(start='2023-01-01', periods=10, freq='D'),
+    'valor': [10, 15, 12, 8, 20, 18, 14, 16, 9, 22]
+}
+df = pd.DataFrame(data)
+
+# Definir a janela deslizante e aplicar uma função de agregação (por exemplo, média)
+window_size = 3
+df['media_deslizante'] = df['valor'].rolling(window=window_size).mean()
+
